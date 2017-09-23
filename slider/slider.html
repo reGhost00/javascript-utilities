@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播</title>
+	<link rel="stylesheet" href="style/slider.css">
+	<style>
+		.cell{
+			width: 450px;
+			height: 300px;
+			background-color: #aaccff;
+			padding: 5px;
+		}
+		#slider{
+			height: 300px;
+			margin: auto;
+		}
+		.cc{
+			font-size: 2em;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<div id="slider" data-slider="horizontal">
+		<div class="cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus facere fugiat hic id laudantium necessitatibus neque nesciunt sint, velit. Beatae dolore eos esse nam nisi possimus temporibus tenetur ullam ut!</div>
+		<div class="cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores deserunt enim error est minus provident quos vero? At deleniti dolor magni repellendus reprehenderit? Autem fugit magni numquam quaerat, reprehenderit velit?</div>
+		<div class="cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ea eligendi fugiat iste nesciunt nihil reiciendis, totam. At atque dolores eaque hic iure mollitia odio perspiciatis quis soluta tempora. Accusamus?</div>
+		<div class="cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae cupiditate maxime nesciunt nihil repellat sed voluptates. Dolore ea eaque earum laborum odit, omnis sapiente sunt vel. Eaque exercitationem repellat totam.</div>
+		<div class="cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet animi asperiores autem cumque, dolorum ea earum error eveniet fuga id labore magni nesciunt perferendis quia repellat sapiente sit. Hic.</div>
+		<div class="cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa cupiditate dolor excepturi illum inventore ipsum iusto nisi nobis officia omnis, perspiciatis possimus, praesentium qui ratione sequi temporibus unde voluptatum.</div>
+	</div>
+</div>
+<p>
+	<button id="btn">stop</button>
+	<button id="btn2">add</button>
+</p>
+
+<script src="../list.js"></script>
+<script src="js/slider.js"></script>
+<!--<script src="js/main.js"></script>-->
+<script>
+	window.onload=function () {
+		let fa = document.getElementById("slider");
+		let sl = new Slider(fa, 3000);
+
+		document.getElementById("btn").onclick=function () {
+			sl.slider_toggle();
+			if(sl.status)
+				this.innerHTML = "stop";
+			else
+				this.innerHTML = "start";
+		};
+
+		document.getElementById("btn2").onclick=function(){
+			let elm = document.createElement("span");
+			let elm2 = document.createElement("span");
+			elm2.innerHTML="step1:create a new element";
+			elm2.className = "cc cell";
+			elm.innerHTML="step2:push new element to linked list as a node";
+			elm.className = "cc cell";
+			elm2.dataset.cellIndex=7;
+			elm.dataset.cellIndex=6;
+			let node = new Node(elm);
+			let node2 = new Node(elm2);
+			sl.elms.list_push_back(sl.elms, node);//linked list here
+			sl.elms.list_push_back(sl.elms, node2);
+			let fa = document.getElementById("slider");
+			fa.appendChild(elm2);
+			fa.appendChild(elm);
+		};
+	};
+
+</script>
+</body>
+</html>
