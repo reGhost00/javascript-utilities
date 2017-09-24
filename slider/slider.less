@@ -1,0 +1,52 @@
+@normal_transition: all .5s linear;
+@z_index_1:              10;
+@z_index_0:              -1;
+@slider_top_dying:      50px;
+@slider_top_dead:       -50px;
+@slider_left_dying:     50px;
+@slider_left_dead:      -50px;
+[data-slider]{    //轮播
+    position:           relative;
+    >[data-cell-index]{        //轮播元素
+        position:       absolute;
+        width: 100%;
+        height: 100%;
+        text-align:     center;
+        opacity:        0;
+        -webkit-transition: @normal_transition;
+        -moz-transition:    @normal_transition;
+        -ms-transition:     @normal_transition;
+        -o-transition:      @normal_transition;
+        transition:         @normal_transition;
+    }
+}
+[data-slider="vertical"]{    //垂直轮播
+	>.active[data-cell-index]{     //轮播进入
+		top:0;
+		opacity: 1;
+		z-index: @z_index_1;
+	}
+	>.dying[data-cell-index]{    //轮播离开
+		top:      @slider_top_dying;
+		z-index: @z_index_1;
+	}
+	>.dead[data-cell-index]{   //轮播隐藏
+		top:      @slider_top_dead;
+		z-index: @z_index_0;
+	}
+}
+[data-slider="horizontal"]{    //水平轮播
+    >.active[data-cell-index]{     //轮播进入
+        left:0;
+        opacity: 1;
+        z-index: @z_index_1;
+    }
+    >.dying[data-cell-index]{    //轮播离开
+        left:     @slider_left_dying;
+        z-index: @z_index_1;
+    }
+    >.dead[data-cell-index]{   //轮播隐藏
+        left:     @slider_left_dead;
+        z-index: @z_index_0;
+    }
+}

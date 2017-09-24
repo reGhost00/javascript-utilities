@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>楼层电梯演示</title>
+	<link rel="stylesheet" href="../grid/style/grid.css">
+	<style>
+		#floor{
+			position: absolute;
+			top: 0;
+			left: 100px;
+		}
+		#floor >div{
+			height: 500px;
+			width: 500px;
+			position: relative;
+		}
+		#elvt{
+			position: fixed;
+			top: 100px;
+			left: 0;
+		}
+		#elvt>div{
+			width: 50px;
+			height: 50px;
+		}
+		.elvt{
+			color: #ff0000;
+		}
+	</style>
+</head>
+<body>
+	<div id="floor">
+		<div>F1 一楼</div>
+		<div>F2 二楼</div>
+		<div>F3 三楼</div>
+		<div>F4 四楼</div>
+		<div>F5 5楼</div>
+		<div>F6 6楼</div>
+		<div>F7 7楼</div>
+		<div>F8 8楼</div>
+	</div>
+	<div id="elvt">
+		<!--此处作为楼层电梯，元素数量必须等于楼层数-->
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+		<div>7</div>
+		<div>8</div>
+	</div>
+
+	<script src="../list.js"></script>
+	<script src="elevator.js"></script>
+	<script>
+		let f = document.getElementById("floor");
+		let i = document.getElementById("elvt");
+
+		let elvt = new Elvt(f, i, 500);
+
+	</script>
+</body>
+</html>
