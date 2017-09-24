@@ -1,7 +1,7 @@
 # javascript-utilities
 此项目包含一些js的小模块用于快速实现一些小功能。使用步骤：<br>
 1 下载所需文件<br>
-2 在您的网页中引入&nbsp&nbsp(例如<script src="list.js">)<br>
+2 在您的网页中引入&nbsp;&nbsp;(例如<script src="list.js">)<br>
 3 var ^_^ = new Node("hello");//创建一个链表
 <br><hr><br>
 以下是各模块功能简介：<br>
